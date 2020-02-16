@@ -1,9 +1,4 @@
-package com.kingaspx.firebase;
 
-
-//import com.mysql.jdbc.Connection;
-//import com.mysql.jdbc.Statement;
-import static com.kingaspx.firebase.Main_class.initFirebase;
 import java.awt.Component;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -29,12 +24,10 @@ public class Report_generator extends javax.swing.JFrame {
      */
     public Report_generator() {
         initComponents();
-        initFirebase();
     }
 
     Report_generator(String user_id, String privilege) {
          initComponents();
-         initFirebase();
          id=user_id;
          jLabel2.setText("User ID: " + user_id);
          
@@ -128,39 +121,39 @@ public class Report_generator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button5ActionPerformed
-        try {
-
-            int counter = 0;
-            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
-            Statement stat = (Statement) con.createStatement();
-            stat.execute("select * from useraccount where User_ID=" + id);
-            ResultSet rs = stat.getResultSet();
-            if (rs != null) {
-                while (rs.next()) {
-                    for (int i = 0; i < 25; i++) {
-                        if (rs.getString("Privilege").equals("1111")) {
-                            Main_menu_admin menu = new Main_menu_admin(rs.getString("User_ID"), rs.getString("Privilege"));
-                            menu.setVisible(true);
-                            this.setVisible(false);
-
-                            break;
-                        } else if (rs.getString("Privilege").charAt(3) == '1' || rs.getString("Privilege").charAt(3) == '1') {
-                            Main_menu_operator menu = new Main_menu_operator(rs.getString("User_ID"), rs.getString("Privilege"));
-                            menu.setVisible(true);
-                            this.setVisible(false);
-                            break;
-                        }
-                    }
-
-                }
-
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception e) {
-            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, e);
-        }
+//        try {
+//
+//            int counter = 0;
+//            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
+//            Statement stat = (Statement) con.createStatement();
+//            stat.execute("select * from useraccount where User_ID=" + id);
+//            ResultSet rs = stat.getResultSet();
+//            if (rs != null) {
+//                while (rs.next()) {
+//                    for (int i = 0; i < 25; i++) {
+//                        if (rs.getString("Privilege").equals("1111")) {
+//                            Main_menu_admin menu = new Main_menu_admin(rs.getString("User_ID"), rs.getString("Privilege"));
+//                            menu.setVisible(true);
+//                            this.setVisible(false);
+//
+//                            break;
+//                        } else if (rs.getString("Privilege").charAt(3) == '1' || rs.getString("Privilege").charAt(3) == '1') {
+//                            Main_menu_operator menu = new Main_menu_operator(rs.getString("User_ID"), rs.getString("Privilege"));
+//                            menu.setVisible(true);
+//                            this.setVisible(false);
+//                            break;
+//                        }
+//                    }
+//
+//                }
+//
+//            }
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (Exception e) {
+//            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, e);
+//        }
 
         
         

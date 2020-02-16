@@ -1,7 +1,4 @@
-package com.kingaspx.firebase;
 
-
-import static com.kingaspx.firebase.Main_class.initFirebase;
 import java.awt.Component;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -28,7 +25,6 @@ public class Main_menu_operator extends javax.swing.JFrame {
      */
     public Main_menu_operator() {
         initComponents();
-        initFirebase();
     }
 
     Main_menu_operator(String user_id, String privilege) {
@@ -144,114 +140,113 @@ public class Main_menu_operator extends javax.swing.JFrame {
 
         
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
-            Statement stat = (Statement) con.createStatement();
-            stat.execute("select * from useraccount where User_ID = " + id);
-            ResultSet rs = stat.getResultSet();
-            if (rs != null) {
-                while (rs.next()) {
-                    for (int i = 0; i < 25; i++) {
-                        if (rs.getString("Privilege").charAt(2) == '1') {
-                            Select_mode sm = new Select_mode(rs.getString("User_ID"));
-                            sm.setVisible(true);
-                            this.setVisible(false);
-                            break;
-                        } else {
-                            Component frame = null;
-                            JOptionPane.showMessageDialog(frame,
-                                    "Your account doesn't have the privilege to acsses This option...",
-                                    "No permission",
-                                    JOptionPane.ERROR_MESSAGE);
-                            break;
-                        }
-
-                    }
-                }
-            }
-
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
+//            Statement stat = (Statement) con.createStatement();
+//            stat.execute("select * from useraccount where User_ID = " + id);
+//            ResultSet rs = stat.getResultSet();
+//            if (rs != null) {
+//                while (rs.next()) {
+//                    for (int i = 0; i < 25; i++) {
+//                        if (rs.getString("Privilege").charAt(2) == '1') {
+//                            Select_mode sm = new Select_mode(rs.getString("User_ID"));
+//                            sm.setVisible(true);
+//                            this.setVisible(false);
+//                            break;
+//                        } else {
+//                            Component frame = null;
+//                            JOptionPane.showMessageDialog(frame,
+//                                    "Your account doesn't have the privilege to acsses This option...",
+//                                    "No permission",
+//                                    JOptionPane.ERROR_MESSAGE);
+//                            break;
+//                        }
+//                    }
+//                }
+//            }
+//
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (Exception ex) {
+//            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
-            Statement stat = (Statement) con.createStatement();
-            stat.execute("select * from useraccount where User_ID = " + id);
-            ResultSet rs = stat.getResultSet();
-            if (rs != null) {
-                while (rs.next()) {
-                    for (int i = 0; i < 25; i++) {
-                        if (rs.getString("Privilege").charAt(2) == '1') {
-                            View_map vm = new View_map(rs.getString("User_ID"),rs.getString("Privilege"));
-                            vm.setVisible(true);
-                            this.setVisible(false);
-                            break;
-                        } else {
-                            Component frame = null;
-                            JOptionPane.showMessageDialog(frame,
-                                    "Your account doesn't have the privilege to acsses This option...",
-                                    "No permission",
-                                    JOptionPane.ERROR_MESSAGE);
-                            break;
-                        }
-
-                    }
-                }
-            }
-
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//       try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
+//            Statement stat = (Statement) con.createStatement();
+//            stat.execute("select * from useraccount where User_ID = " + id);
+//            ResultSet rs = stat.getResultSet();
+//            if (rs != null) {
+//                while (rs.next()) {
+//                    for (int i = 0; i < 25; i++) {
+//                        if (rs.getString("Privilege").charAt(2) == '1') {
+//                            View_map vm = new View_map(rs.getString("User_ID"),rs.getString("Privilege"));
+//                            vm.setVisible(true);
+//                            this.setVisible(false);
+//                            break;
+//                        } else {
+//                            Component frame = null;
+//                            JOptionPane.showMessageDialog(frame,
+//                                    "Your account doesn't have the privilege to acsses This option...",
+//                                    "No permission",
+//                                    JOptionPane.ERROR_MESSAGE);
+//                            break;
+//                        }
+//
+//                    }
+//                }
+//            }
+//
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (Exception ex) {
+//            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
-            Statement stat = (Statement) con.createStatement();
-            stat.execute("select * from useraccount where User_ID = " + id);
-            ResultSet rs = stat.getResultSet();
-            if (rs != null) {
-                while (rs.next()) {
-                    for (int i = 0; i < 25; i++) {
-                        if (rs.getString("Privilege").charAt(3) == '1') {
-                            Report_generator rg = new Report_generator(rs.getString("User_ID"),rs.getString("Privilege"));
-                            rg.setVisible(true);
-                            this.setVisible(false);
-                            break;
-                        } else {
-                            Component frame = null;
-                            JOptionPane.showMessageDialog(frame,
-                                    "Your account doesn't have the privilege to acsses This option...",
-                                    "No permission",
-                                    JOptionPane.ERROR_MESSAGE);
-                            break;
-                        }
-
-                    }
-                }
-            }
-
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//       try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
+//            Statement stat = (Statement) con.createStatement();
+//            stat.execute("select * from useraccount where User_ID = " + id);
+//            ResultSet rs = stat.getResultSet();
+//            if (rs != null) {
+//                while (rs.next()) {
+//                    for (int i = 0; i < 25; i++) {
+//                        if (rs.getString("Privilege").charAt(3) == '1') {
+//                            Report_generator rg = new Report_generator(rs.getString("User_ID"),rs.getString("Privilege"));
+//                            rg.setVisible(true);
+//                            this.setVisible(false);
+//                            break;
+//                        } else {
+//                            Component frame = null;
+//                            JOptionPane.showMessageDialog(frame,
+//                                    "Your account doesn't have the privilege to acsses This option...",
+//                                    "No permission",
+//                                    JOptionPane.ERROR_MESSAGE);
+//                            break;
+//                        }
+//
+//                    }
+//                }
+//            }
+//
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (Exception ex) {
+//            Logger.getLogger(Main_menu_operator.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

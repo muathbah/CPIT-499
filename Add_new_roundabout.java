@@ -1,7 +1,3 @@
-package com.kingaspx.firebase;
-
-import static com.kingaspx.firebase.Main_class.initFirebase;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -19,12 +15,10 @@ String id="";
      */
     public Add_new_roundabout() {
         initComponents();
-        initFirebase();
     }
 
     Add_new_roundabout(String user_id) {
         initComponents();
-        initFirebase();
         id = user_id;
         jLabel3.setText("User ID: " + user_id);
     }
@@ -122,7 +116,7 @@ String id="";
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button2ActionPerformed
-         Main_menu_admin menu = new Main_menu_admin();
+         Main_menu_admin menu = new Main_menu_admin(id,"1111");
         menu.setVisible(true);
         this.setVisible(false);
         

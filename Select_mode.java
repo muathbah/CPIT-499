@@ -1,9 +1,4 @@
-package com.kingaspx.firebase;
 
-
-import static com.kingaspx.firebase.Main_class.initFirebase;
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Statement;
 import java.awt.Component;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -30,12 +25,10 @@ public class Select_mode extends javax.swing.JFrame {
      */
     public Select_mode() {
         initComponents();
-        initFirebase();
     }
 
     Select_mode(String user_id) {
         initComponents();
-        initFirebase();
         id = user_id;
         jLabel2.setText("User ID: " + user_id);
     }
@@ -113,39 +106,39 @@ public class Select_mode extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button3ActionPerformed
-        try {
-
-            int counter = 0;
-            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
-            Statement stat = (Statement) con.createStatement();
-            stat.execute("select * from useraccount where User_ID=" + id);
-            ResultSet rs = stat.getResultSet();
-            if (rs != null) {
-                while (rs.next()) {
-                    for (int i = 0; i < 25; i++) {
-                        if (rs.getString("Privilege").equals("1111")) {
-                            Main_menu_admin menu = new Main_menu_admin(rs.getString("User_ID"), rs.getString("Privilege"));
-                            menu.setVisible(true);
-                            this.setVisible(false);
-
-                            break;
-                        } else if (rs.getString("Privilege").charAt(2) == '1' || rs.getString("Privilege").charAt(3) == '1') {
-                            Main_menu_operator menu = new Main_menu_operator(rs.getString("User_ID"), rs.getString("Privilege"));
-                            menu.setVisible(true);
-                            this.setVisible(false);
-                            break;
-                        }
-                    }
-
-                }
-
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception e) {
-            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, e);
-        }
+//        try {
+//
+//            int counter = 0;
+//            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
+//            Statement stat = (Statement) con.createStatement();
+//            stat.execute("select * from useraccount where User_ID=" + id);
+//            ResultSet rs = stat.getResultSet();
+//            if (rs != null) {
+//                while (rs.next()) {
+//                    for (int i = 0; i < 25; i++) {
+//                        if (rs.getString("Privilege").equals("1111")) {
+//                            Main_menu_admin menu = new Main_menu_admin(rs.getString("User_ID"), rs.getString("Privilege"));
+//                            menu.setVisible(true);
+//                            this.setVisible(false);
+//
+//                            break;
+//                        } else if (rs.getString("Privilege").charAt(2) == '1' || rs.getString("Privilege").charAt(3) == '1') {
+//                            Main_menu_operator menu = new Main_menu_operator(rs.getString("User_ID"), rs.getString("Privilege"));
+//                            menu.setVisible(true);
+//                            this.setVisible(false);
+//                            break;
+//                        }
+//                    }
+//
+//                }
+//
+//            }
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (Exception e) {
+//            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, e);
+//        }
 
 
     }//GEN-LAST:event_Button3ActionPerformed

@@ -1,7 +1,3 @@
-package com.kingaspx.firebase;
-
-import static com.kingaspx.firebase.Main_class.initFirebase;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -19,7 +15,6 @@ public class Add_new_road extends javax.swing.JFrame {
      */
     public Add_new_road() {
         initComponents();
-        initFirebase();
     }
 
     /**

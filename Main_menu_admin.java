@@ -1,8 +1,4 @@
-package com.kingaspx.firebase;
 
-
-
-import static com.kingaspx.firebase.util.common.initFirebase;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,15 +29,12 @@ public class Main_menu_admin extends javax.swing.JFrame {
 
     Main_menu_admin(String user_id, String privilege) {
         initComponents();
-        initFirebase();
         s = user_id;
         jLabel3.setText("User ID: " + user_id);
         jLabel1.setText("You have access to all utilities");
     }
 
-    Main_menu_admin(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

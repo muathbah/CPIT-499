@@ -1,9 +1,4 @@
-package com.kingaspx.firebase;
 
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import static com.kingaspx.firebase.util.common.initFirebase;
 import java.awt.Component;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -23,16 +18,19 @@ import javax.swing.JOptionPane;
  */
 public class Create_account extends javax.swing.JFrame {
 
+    String id = "";
+
     /**
      * Creates new form Create_account
      */
     public Create_account() {
         initComponents();
-        initFirebase();
     }
 
     Create_account(String s, String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        initComponents();
+        id = s;
+        jLabel9.setText("User ID: " + s);
     }
 
     /**
@@ -64,6 +62,7 @@ public class Create_account extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         CheckBox1 = new javax.swing.JCheckBox();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -129,65 +128,66 @@ public class Create_account extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Button1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Button2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Button1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(CheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                                        .addComponent(CheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(CheckBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel4)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(21, 21, 21)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(CheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                                                .addComponent(CheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addComponent(CheckBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(CheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jLabel1)
-                                                    .addGap(76, 76, 76))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                    .addComponent(jLabel6)
-                                                    .addGap(66, 66, 66)))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel7)
-                                                .addGap(68, 68, 68)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                                            .addComponent(jTextField2)
-                                            .addComponent(jTextField3)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLabel3)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                                            .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel2)
-                                                .addComponent(jLabel8))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                                                .addComponent(jTextField4)))))))
-                        .addGap(0, 56, Short.MAX_VALUE)))
+                                            .addComponent(jLabel1)
+                                            .addGap(76, 76, 76))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(jLabel6)
+                                            .addGap(66, 66, 66)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(68, 68, 68)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                    .addComponent(jTextField2)
+                                    .addComponent(jTextField3)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel8))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                        .addComponent(jTextField4)))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Button2, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(13, 13, 13)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -215,7 +215,7 @@ public class Create_account extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(CheckBox1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(CheckBox2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(CheckBox3)
@@ -232,8 +232,7 @@ public class Create_account extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button1ActionPerformed
-        
-        Main_menu_admin menu = new Main_menu_admin();
+        Main_menu_admin menu = new Main_menu_admin(id, "1111");
         menu.setVisible(true);
         this.setVisible(false);
 
@@ -248,61 +247,91 @@ public class Create_account extends javax.swing.JFrame {
     }//GEN-LAST:event_CheckBox4ActionPerformed
 
     private void Button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button2ActionPerformed
-        String privilge="";
-        Privilege p = new Privilege();
-        try {
-
-            int[] all_users = new int[25];
-            String[] y = new String[25];
-            
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference("useraccount");
-            
-            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
-            Statement stat = (Statement) con.createStatement();
-            myRef.setValue("Rami",);
-            stat.execute("select * from useraccount");
-            ResultSet rs = stat.getResultSet();
-            if (rs != null) {
-                while (rs.next()) {
-                    for (int i = 0; i < all_users.length; i++) {
-                        all_users[i] = rs.getInt("User_ID");
-                        break;
-                    }
-                }
-            }
-
-            for (int i = 0; i < all_users.length; i++) {
-                if (all_users[i] == Integer.parseInt(jTextField1.getText())) {
-                    Component frame = null;
-                    JOptionPane.showMessageDialog(frame,
-                            "The user ID is already exsist...",
-                            "Wrong input",
-                            JOptionPane.ERROR_MESSAGE);
-                    break;
-                } else if (!jPasswordField1.getText().equals(jPasswordField2.getText())) {
-                    Component frame = null;
-                    JOptionPane.showMessageDialog(frame,
-                            "The password you have entered didn't match...",
-                            "Wrong password",
-                            JOptionPane.ERROR_MESSAGE);
-                    break;
-                } else {
-//                    privilge= p.get_total_name(CheckBox1.isSelected(), CheckBox2.isSelected(), CheckBox3.isSelected(), CheckBox4.isSelected());
-                    try {
-                        stat.execute("INSERT INTO `useraccount` (`User_ID`, `FName`, `LName`, `Phone_number`, `User_password`, `Privilege`) VALUES ('" + jTextField1.getText() + "', '" + jTextField2.getText() + "', '" + jTextField3.getText() + "', '" + jTextField4.getText() + "', '" + jPasswordField1.getText() + "', '"+privilge+"')");
-                    } catch (Exception e) {
-                        Component frame = null;
-                        JOptionPane.showMessageDialog(frame,
-                                "The account has been created successfully ^_^");
-                        break;
-                    }
-                }
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            String privilge = "";
+//            Privilege p = new Privilege();
+//            //try {
+//
+//            int[] all_users = new int[25];
+//            String[] y = new String[25];
+//
+//            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
+//            Statement stat = (Statement) con.createStatement();
+//            stat.execute("select * from useraccount where User_ID = " + jTextField1.getText());
+//            ResultSet rs = stat.getResultSet();
+//            
+//            if (rs.getInt("User_ID") == Integer.parseInt(jTextField1.getText())) {
+//                Component frame = null;
+//                JOptionPane.showMessageDialog(frame,
+//                        "The user ID is already exsist...",
+//                        "Wrong input",
+//                        JOptionPane.ERROR_MESSAGE);
+//            } 
+//            else if (!jPasswordField1.getText().equals(jPasswordField2.getText())) {
+//                Component frame = null;
+//                JOptionPane.showMessageDialog(frame,
+//                        "The password you have entered didn't match...",
+//                        "Wrong password",
+//                        JOptionPane.ERROR_MESSAGE);
+//            }
+//            else {
+//                   privilge= p.get_total_name(CheckBox1.isSelected(), CheckBox2.isSelected(), CheckBox3.isSelected(), CheckBox4.isSelected());
+//                try {
+//                    stat.execute("INSERT INTO `useraccount` (`User_ID`, `FName`, `LName`, `Phone_number`, `User_password`, `Privilege`) VALUES ('" + jTextField1.getText() + "', '" + jTextField2.getText() + "', '" + jTextField3.getText() + "', '" + jTextField4.getText() + "', '" + jPasswordField1.getText() + "', '" + privilge + "')");
+//                } catch (Exception e) {
+//                    Component frame = null;
+//                    JOptionPane.showMessageDialog(frame,
+//                            "The account has been created successfully ^_^");
+//                }
+//            }
+//
+//        } catch (SQLException ex) {
+//            
+//        }
+//
+//        
+////            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
+////            Statement stat = (Statement) con.createStatement();
+////            stat.execute("select * from useraccount");
+////            ResultSet rs = stat.getResultSet();
+////
+////            if (rs != null) {
+////                while (rs.next()) {
+////                    for (int i = 0; i < 25; i++) {
+////                        if (rs.getInt("User_ID") == Integer.parseInt(jTextField1.getText())) {
+////                            Component frame = null;
+////                            JOptionPane.showMessageDialog(frame,
+////                                    "The user ID is already exsist...",
+////                                    "Wrong input",
+////                                    JOptionPane.ERROR_MESSAGE);
+////                            break;
+////                        } else if (!jPasswordField1.getText().equals(jPasswordField2.getText())) {
+////                            Component frame = null;
+////                            JOptionPane.showMessageDialog(frame,
+////                                    "The password you have entered didn't match...",
+////                                    "Wrong password",
+////                                    JOptionPane.ERROR_MESSAGE);
+////                            break;
+////                        } else {
+////                            privilge = p.get_total_name(CheckBox1.isSelected(), CheckBox2.isSelected(), CheckBox3.isSelected(), CheckBox4.isSelected());
+////                            System.out.println(privilge);
+////                            try {
+////                                stat.execute("INSERT INTO `useraccount` (`User_ID`, `FName`, `LName`, `Phone_number`, `User_password`, `Privilege`) VALUES ('" + jTextField1.getText() + "', '" + jTextField2.getText() + "', '" + jTextField3.getText() + "', '" + jTextField4.getText() + "', '" + jPasswordField1.getText() + "', '" + privilge + "')");
+////                            } catch (Exception e) {
+////                                Component frame = null;
+////                                JOptionPane.showMessageDialog(frame,
+////                                        "The account has been created successfully ^_^");
+////                                break;
+////                            }
+////                        }
+////                    }
+////
+////                }
+////
+////            }
+////        } catch (SQLException ex) {
+////            Logger.getLogger(Create_account.class.getName()).log(Level.SEVERE, null, ex);
+////        } 
 
 
     }//GEN-LAST:event_Button2ActionPerformed
@@ -346,7 +375,6 @@ public class Create_account extends javax.swing.JFrame {
         });
     }
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button1;
@@ -363,6 +391,7 @@ public class Create_account extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField jTextField1;

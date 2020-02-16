@@ -1,9 +1,4 @@
-package com.kingaspx.firebase;
 
-
-import static com.kingaspx.firebase.Main_class.initFirebase;
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Statement;
 import java.awt.Component;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -29,7 +24,6 @@ public class Authenticate_login extends javax.swing.JFrame {
      */
     public Authenticate_login() {
         initComponents();
-        initFirebase();
     }
 
     /**
@@ -104,49 +98,49 @@ public class Authenticate_login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button1ActionPerformed
-        try {
-
-            
-            int counter = 0;
-            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
-            Statement stat = (Statement) con.createStatement();
-            stat.execute("select * from useraccount where User_ID=" + TextField1.getText());
-            ResultSet rs = stat.getResultSet();
-            if (rs != null) {
-                while (rs.next()) {
-                    
-                        if (rs.getString("User_ID").equals(TextField1.getText()) && rs.getString("User_password").equals(PasswordField1.getText())) {
-                            if (rs.getString("Privilege").equals("1111")) {
-                                Main_menu_admin menu = new Main_menu_admin(TextField1.getText(),rs.getString("Privilege"));
-                                menu.setVisible(true);
-                                this.setVisible(false);
-                                
-                                break;
-                            } else if (rs.getString("Privilege").charAt(2) == '1' || rs.getString("Privilege").charAt(3) == '1') {
-                                 Main_menu_operator menu = new Main_menu_operator(TextField1.getText(),rs.getString("Privilege"));
-                                menu.setVisible(true);
-                                this.setVisible(false);
-                                break;
-                            }
-                        } else {
-                            Component frame = null;
-                            JOptionPane.showMessageDialog(frame,
-                                    "Your User ID or password is wrong...",
-                                    "Wrong input",
-                                    JOptionPane.ERROR_MESSAGE);
-                            System.exit(0);
-                        }
-                    
-                }
-
-            }
-
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception e) {
-            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, e);
-        }
+//        try {
+//
+//            
+//            int counter = 0;
+//            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
+//            Statement stat = (Statement) con.createStatement();
+//            stat.execute("select * from useraccount where User_ID=" + TextField1.getText());
+//            ResultSet rs = stat.getResultSet();
+//            if (rs != null) {
+//                while (rs.next()) {
+//                    
+//                        if (rs.getString("User_ID").equals(TextField1.getText()) && rs.getString("User_password").equals(PasswordField1.getText())) {
+//                            if (rs.getString("Privilege").equals("1111")) {
+//                                Main_menu_admin menu = new Main_menu_admin(TextField1.getText(),rs.getString("Privilege"));
+//                                menu.setVisible(true);
+//                                this.setVisible(false);
+//                                
+//                                break;
+//                            } else if (rs.getString("Privilege").charAt(2) == '1' || rs.getString("Privilege").charAt(3) == '1') {
+//                                 Main_menu_operator menu = new Main_menu_operator(TextField1.getText(),rs.getString("Privilege"));
+//                                menu.setVisible(true);
+//                                this.setVisible(false);
+//                                break;
+//                            }
+//                        } else {
+//                            Component frame = null;
+//                            JOptionPane.showMessageDialog(frame,
+//                                    "Your User ID or password is wrong...",
+//                                    "Wrong input",
+//                                    JOptionPane.ERROR_MESSAGE);
+//                            System.exit(0);
+//                        }
+//                    
+//                }
+//
+//            }
+//
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (Exception e) {
+//            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, e);
+//        }
 
     }//GEN-LAST:event_Button1ActionPerformed
 

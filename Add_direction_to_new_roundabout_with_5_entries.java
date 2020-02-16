@@ -1,7 +1,5 @@
-package com.kingaspx.firebase;
 
 
-import static com.kingaspx.firebase.Main_class.initFirebase;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,12 +23,10 @@ String id="";
      */
     public Add_direction_to_new_roundabout_with_5_entries() {
         initComponents();
-        initFirebase();
     }
     
     public Add_direction_to_new_roundabout_with_5_entries(String user_id) {
         initComponents();
-        initFirebase();
         id = user_id;
         jLabel1.setText("User ID: " + user_id);
 
@@ -62,8 +58,6 @@ String id="";
         Button2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\KAU\\Desktop\\roundabout in 2D\\miniroundabout-with 5 exits.jpg")); // NOI18N
 
         jLabel2.setText("please specify where the flow coming from in each direction:");
 
@@ -200,29 +194,29 @@ String id="";
     }//GEN-LAST:event_Button1ActionPerformed
 
     private void Button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button2ActionPerformed
-       try {
-
-            int counter = 0;
-            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
-            Statement stat = (Statement) con.createStatement();
-            stat.execute("select * from useraccount where User_ID=" + id);
-            ResultSet rs = stat.getResultSet();
-            if (rs != null) {
-                while (rs.next()) {
-
-                    Add_new_roundabout round = new Add_new_roundabout(rs.getString("User_ID"));
-                    round.setVisible(true);
-                    this.setVisible(false);
-                    break;
-                }
-
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception e) {
-            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, e);
-        }
+//       try {
+//
+//            int counter = 0;
+//            Connection con = (Connection) DriverManager.getConnection("Jdbc:mysql://localhost:3306/traffic control system", "root", "");
+//            Statement stat = (Statement) con.createStatement();
+//            stat.execute("select * from useraccount where User_ID=" + id);
+//            ResultSet rs = stat.getResultSet();
+//            if (rs != null) {
+//                while (rs.next()) {
+//
+//                    Add_new_roundabout round = new Add_new_roundabout(rs.getString("User_ID"));
+//                    round.setVisible(true);
+//                    this.setVisible(false);
+//                    break;
+//                }
+//
+//            }
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (Exception e) {
+//            Logger.getLogger(Authenticate_login.class.getName()).log(Level.SEVERE, null, e);
+//        }
 
 
     }//GEN-LAST:event_Button2ActionPerformed
